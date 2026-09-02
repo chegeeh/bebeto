@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bebeto Coaches | Premium East African Bus Travel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-orange: #F26522;
+            --dark-orange: #D35400;
+            --primary-blue: #1E88E5;
+            --dark-blue: #0D47A1;
+            --black: #0a0a0a;
+            --dark-gray: #1a1a1a;
+            --medium-gray: #2d2d2d;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --success: #00C853;
+            --glass: rgba(255,255,255,0.05);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--dark-gray); }
+        ::-webkit-scrollbar-thumb { background: var(--primary-orange); border-radius: 4px; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(10,10,10,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(242,101,34,0.2); transition: all 0.3s ease; }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 0.75rem; font-weight: 900; font-size: 1.5rem; color: var(--white); text-decoration: none; }
+        .logo-icon { width: 45px; height: 45px; background: linear-gradient(135deg, var(--primary-orange), var(--dark-orange)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+        .logo span { background: linear-gradient(135deg, var(--primary-orange), var(--primary-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.3s ease; position: relative; }
+        .nav-links a:hover { color: var(--primary-orange); }
+        .nav-links a::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px; background: var(--primary-orange); transition: width 0.3s ease; }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-cta { background: linear-gradient(135deg, var(--primary-orange), var(--dark-orange)); color: var(--white); padding: 0.6rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; border: none; cursor: pointer; }
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(242,101,34,0.3); }
+        .mobile-menu-btn { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; padding-top: 80px; overflow: hidden; }
+        .hero-bg { position: absolute; inset: 0; z-index: 0; }
+        .hero-bg::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.7) 50%, rgba(30,136,229,0.15) 100%); z-index: 1; }
+        .hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
+        .hero-content { position: relative; z-index: 2; max-width: 1400px; margin: 0 auto; padding: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .hero-text h1 { font-size: 4rem; font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; }
+        .hero-text h1 .highlight { background: linear-gradient(135deg, var(--primary-orange), var(--primary-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero-text p { font-size: 1.2rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 2rem; max-width: 500px; }
+        .hero-stats { display: flex; gap: 2.5rem; margin-bottom: 2.5rem; }
+        .stat { text-align: left; }
+        .stat-number { font-size: 2rem; font-weight: 800; color: var(--primary-orange); }
+        .stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; }
+        .hero-buttons { display: flex; gap: 1rem; }
+        .btn-primary { background: linear-gradient(135deg, var(--primary-orange), var(--dark-orange)); color: var(--white); padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem; border: none; cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(242,101,34,0.4); }
+        .btn-secondary { background: transparent; color: var(--white); padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem; border: 2px solid rgba(255,255,255,0.2); cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem; }
+        .btn-secondary:hover { border-color: var(--primary-orange); color: var(--primary-orange); }
+        .hero-image { position: relative; }
+        .hero-image img { width: 100%; border-radius: 24px; box-shadow: 0 40px 80px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); }
+        .floating-card { position: absolute; background: rgba(255,255,255,0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; animation: float 3s ease-in-out infinite; }
+        .floating-card.card-1 { top: -20px; right: -20px; animation-delay: 0s; }
+        .floating-card.card-2 { bottom: 40px; left: -30px; animation-delay: 1.5s; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .floating-card i { font-size: 1.5rem; color: var(--primary-orange); }
+        .floating-card div { font-size: 0.85rem; }
+        .floating-card strong { display: block; font-size: 1rem; }
+        .booking-section { padding: 6rem 2rem; background: linear-gradient(180deg, var(--black) 0%, var(--dark-gray) 100%); position: relative; }
+        .booking-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--primary-orange), transparent); }
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
+        .section-tag { display: inline-block; padding: 0.4rem 1.2rem; background: rgba(242,101,34,0.15); color: var(--primary-orange); border-radius: 50px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; border: 1px solid rgba(242,101,34,0.3); }
+        .section-header h2 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; }
+        .section-header p { color: rgba(255,255,255,0.6); font-size: 1.1rem; line-height: 1.7; }
+        .booking-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .booking-form-wrapper { background: var(--glass); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 2.5rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; color: rgba(255,255,255,0.8); }
+        .form-group select, .form-group input { width: 100%; padding: 1rem 1.2rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; color: var(--white); font-size: 1rem; font-family: 'Inter', sans-serif; transition: all 0.3s ease; outline: none; }
+        .form-group select:focus, .form-group input:focus { border-color: var(--primary-orange); background: rgba(255,255,255,0.08); }
+        .form-group select option { background: var(--dark-gray); color: var(--white); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .class-toggle { display: flex; background: rgba(255,255,255,0.05); border-radius: 12px; padding: 4px; border: 1px solid rgba(255,255,255,0.1); }
+        .class-toggle label { flex: 1; text-align: center; padding: 0.8rem; border-radius: 10px; cursor: pointer; transition: all 0.3s ease; font-weight: 500; font-size: 0.9rem; }
+        .class-toggle input[type="radio"] { display: none; }
+        .class-toggle input[type="radio"]:checked + label { background: linear-gradient(135deg, var(--primary-orange), var(--dark-orange)); color: var(--white); font-weight: 600; }
+        .price-display { background: linear-gradient(135deg, rgba(242,101,34,0.15), rgba(30,136,229,0.1)); border: 1px solid rgba(242,101,34,0.3); border-radius: 16px; padding: 1.5rem; margin-top: 1.5rem; text-align: center; }
+        .price-display .price-label { font-size: 0.85rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+        .price-display .price-value { font-size: 2.5rem; font-weight: 800; color: var(--primary-orange); }
+        .price-display .price-currency { font-size: 1rem; color: rgba(255,255,255,0.6); }
+        .seat-selection-wrapper { background: var(--glass); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 2.5rem; }
+        .seat-selection-wrapper h3 { font-size: 1.3rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+        .seat-selection-wrapper h3 i { color: var(--primary-orange); }
+        .bus-layout { background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); border-radius: 20px; padding: 2rem; border: 1px solid rgba(255,255,255,0.08); }
+        .bus-front { text-align: center; margin-bottom: 2rem; padding: 1rem; background: linear-gradient(90deg, var(--primary-orange), var(--primary-blue)); border-radius: 16px 16px 4px 4px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; font-size: 0.85rem; }
+        .seat-grid { display: grid; gap: 0.6rem; max-width: 380px; margin: 0 auto; }
+.seat-grid.regular-layout { grid-template-columns: 1fr 1fr 0.5fr 1fr 1fr; }
+.seat-grid.vip-layout { grid-template-columns: 1fr 1fr 0.8fr 1fr; }
+.aisle-gap { display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.15); font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; }
+        .seat { aspect-ratio: 1; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent; position: relative; background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); }
+        .seat:hover:not(.occupied) { background: rgba(242,101,34,0.2); border-color: var(--primary-orange); transform: scale(1.1); color: var(--white); }
+        .seat.selected { background: linear-gradient(135deg, var(--primary-orange), var(--dark-orange)); color: var(--white); border-color: var(--primary-orange); box-shadow: 0 5px 20px rgba(242,101,34,0.4); transform: scale(1.05); }
+        .seat.occupied { background: rgba(255,255,255,0.03); color: rgba(255,255,255,0.2); cursor: not-allowed; text-decoration: line-through; }
+        .seat.vip-seat { border: 2px solid rgba(30,136,229,0.3); }
+        .seat.vip-seat.selected { background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue)); border-color: var(--primary-blue); box-shadow: 0 5px 20px rgba(30,136,229,0.4); }
+        .seat-legend { display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap; }
+        .legend-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+        .legend-box { width: 20px; height: 20px; border-radius: 6px; border: 2px solid transparent; }
+        .legend-box.available { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
+        .legend-box.selected { background: linear-gradient(135deg, var(--primary-orange), var(--dark-orange)); }
+        .legend-box.occupied { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.1); }
+        .legend-box.vip { border-color: rgba(30,136,229,0.5); background: rgba(30,136,229,0.1); }
+        .routes-section { padding: 6rem 2rem; background: var(--black); position: relative; }
+        .routes-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.5rem; }
+        .route-card { background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; transition: all 0.4s ease; position: relative; overflow: hidden; }
+        .route-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--primary-orange), var(--primary-blue)); transition: width 0.4s ease; }
+        .route-card:hover::before { width: 100%; opacity: 0.05; }
+        .route-card:hover { transform: translateY(-5px); border-color: rgba(242,101,34,0.3); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+        .route-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
+        .route-title { font-size: 1.2rem; font-weight: 700; }
+        .route-title i { color: var(--primary-orange); margin: 0 0.5rem; }
+        .route-prices { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .price-box { background: rgba(255,255,255,0.03); border-radius: 12px; padding: 1rem; text-align: center; border: 1px solid rgba(255,255,255,0.08); }
+        .price-box.regular { border-color: rgba(255,255,255,0.15); }
+        .price-box.vip { border-color: rgba(30,136,229,0.3); background: rgba(30,136,229,0.05); }
+        .price-box-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.5); margin-bottom: 0.5rem; }
+        .price-box-amount { font-size: 1.3rem; font-weight: 700; }
+        .price-box.regular .price-box-amount { color: var(--white); }
+        .price-box.vip .price-box-amount { color: var(--primary-blue); }
+        .route-book-btn { width: 100%; margin-top: 1.5rem; padding: 0.9rem; background: transparent; border: 1px solid var(--primary-orange); color: var(--primary-orange); border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-family: 'Inter', sans-serif; font-size: 0.95rem; }
+        .route-book-btn:hover { background: var(--primary-orange); color: var(--white); }
+        .gallery-section { padding: 6rem 2rem; background: linear-gradient(180deg, var(--dark-gray), var(--black)); }
+        .gallery-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 250px; gap: 1rem; }
+        .gallery-item { border-radius: 16px; overflow: hidden; position: relative; cursor: pointer; transition: all 0.4s ease; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(10,10,10,0.8)); opacity: 0; transition: opacity 0.3s ease; }
+        .gallery-item:hover::after { opacity: 1; }
+        .gallery-item.tall { grid-row: span 2; }
+        .gallery-item.wide { grid-column: span 2; }
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); z-index: 2000; display: none; align-items: center; justify-content: center; padding: 2rem; }
+        .modal-overlay.active { display: flex; }
+        .modal { background: var(--dark-gray); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 2.5rem; position: relative; animation: modalSlide 0.4s ease; }
+        @keyframes modalSlide { from { opacity: 0; transform: translateY(30px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        .modal-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; color: rgba(255,255,255,0.5); font-size: 1.5rem; cursor: pointer; transition: color 0.3s ease; }
+        .modal-close:hover { color: var(--white); }
+        .modal h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .modal-subtitle { color: rgba(255,255,255,0.5); margin-bottom: 2rem; font-size: 0.95rem; }
+        .booking-summary { background: rgba(255,255,255,0.03); border-radius: 16px; padding: 1.5rem; margin-bottom: 2rem; border: 1px solid rgba(255,255,255,0.08); }
+        .summary-row { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.95rem; }
+        .summary-row:last-child { border-bottom: none; font-weight: 700; font-size: 1.1rem; color: var(--primary-orange); margin-top: 0.5rem; padding-top: 1rem; border-top: 2px solid rgba(242,101,34,0.3); }
+        .summary-row span:first-child { color: rgba(255,255,255,0.6); }
+        .whatsapp-btn { width: 100%; padding: 1.2rem; background: linear-gradient(135deg, #25D366, #128C7E); color: var(--white); border: none; border-radius: 16px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.75rem; font-family: 'Inter', sans-serif; text-decoration: none; }
+        .whatsapp-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(37,211,102,0.3); }
+        .whatsapp-note { text-align: center; margin-top: 1rem; font-size: 0.85rem; color: rgba(255,255,255,0.4); }
+        footer { background: var(--dark-gray); border-top: 1px solid rgba(255,255,255,0.05); padding: 4rem 2rem 2rem; }
+        .footer-content { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-brand p { color: rgba(255,255,255,0.5); margin-top: 1rem; line-height: 1.7; font-size: 0.95rem; }
+        .footer-links h4 { font-size: 1rem; margin-bottom: 1.5rem; color: var(--white); }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 0.75rem; }
+        .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
+        .footer-links a:hover { color: var(--primary-orange); }
+        .footer-bottom { max-width: 1400px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; color: rgba(255,255,255,0.3); font-size: 0.85rem; }
+        .social-links { display: flex; gap: 1rem; }
+        .social-links a { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6); text-decoration: none; transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.1); }
+        .social-links a:hover { background: var(--primary-orange); color: var(--white); border-color: var(--primary-orange); transform: translateY(-3px); }
+        .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; width: 60px; height: 60px; background: linear-gradient(135deg, #25D366, #128C7E); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.8rem; box-shadow: 0 10px 30px rgba(37,211,102,0.3); cursor: pointer; z-index: 999; transition: all 0.3s ease; text-decoration: none; animation: pulse 2s infinite; }
+        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 15px 40px rgba(37,211,102,0.4); }
+        @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.4); } 50% { box-shadow: 0 0 0 15px rgba(37,211,102,0); } }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        @media (max-width: 1024px) {
+            .hero-content { grid-template-columns: 1fr; text-align: center; }
+            .hero-text h1 { font-size: 3rem; }
+            .hero-stats { justify-content: center; }
+            .hero-buttons { justify-content: center; }
+            .hero-image { display: none; }
+            .booking-container { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr 1fr; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .section-header h2 { font-size: 2rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .routes-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; gap: 2rem; }
+            .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 200px; }
+            .gallery-item.tall, .gallery-item.wide { grid-row: span 1; grid-column: span 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon"><i class="fas fa-bus"></i></div>
+                <div>Bebeto <span>Coaches</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#routes">Routes & Prices</a></li>
+                <li><a href="#book">Book Now</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#book" class="nav-cta"><i class="fas fa-ticket"></i> Book Ticket</a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <img src="/mnt/agents/upload/1001472485.jpg" alt="Bebeto Coaches Fleet">
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Travel East Africa in <span class="highlight">Style & Comfort</span></h1>
+                <p>Premium intercity bus service connecting Kenya, Uganda, Rwanda, Burundi, South Sudan, and DR Congo. Experience luxury on wheels with Bebeto Coaches.</p>
+                <div class="hero-stats">
+                    <div class="stat"><div class="stat-number">8+</div><div class="stat-label">Major Routes</div></div>
+                    <div class="stat"><div class="stat-number">6</div><div class="stat-label">Countries</div></div>
+                    <div class="stat"><div class="stat-number">Scania</div><div class="stat-label">Fleet</div></div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#book" class="btn-primary"><i class="fas fa-ticket"></i> Book Your Seat</a>
+                    <a href="#routes" class="btn-secondary"><i class="fas fa-map-marker-alt"></i> View Routes</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="/mnt/agents/upload/1001472486.jpg" alt="Bebeto Coach Bus">
+                <div class="floating-card card-1">
+                    <i class="fas fa-shield-alt"></i>
+                    <div><strong>Safety First</strong>ABS Equipped Fleet</div>
+                </div>
+                <div class="floating-card card-2">
+                    <i class="fas fa-wifi"></i>
+                    <div><strong>Onboard WiFi</strong>Stay Connected</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="routes-section" id="routes">
+        <div class="section-header fade-in">
+            <div class="section-tag">Our Network</div>
+            <h2>Routes & Fares</h2>
+            <p>Explore our comprehensive network across East Africa. Choose between Regular and VIP/First Class for a travel experience that suits your needs.</p>
+        </div>
+        <div class="routes-grid" id="routesGrid"></div>
+    </section>
+
+    <section class="booking-section" id="book">
+        <div class="section-header fade-in">
+            <div class="section-tag">Reserve Your Seat</div>
+            <h2>Book Your Journey</h2>
+            <p>Select your route, travel class, and preferred seat. Complete your booking via WhatsApp for quick confirmation.</p>
+        </div>
+        <div class="booking-container">
+            <div class="booking-form-wrapper fade-in">
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.3rem;"><i class="fas fa-edit" style="color: var(--primary-orange); margin-right: 0.5rem;"></i> Trip Details</h3>
+                <form id="bookingForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Full Name</label>
+                            <input type="text" id="fullName" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-phone"></i> Phone Number</label>
+                            <input type="tel" id="phoneNumber" placeholder="+254 712 345 678" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-calendar"></i> Travel Date</label>
+                            <input type="date" id="travelDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-clock"></i> Departure Time</label>
+                            <select id="departureTime">
+                                <option value="06:00 AM">06:00 AM</option>
+                                <option value="08:00 AM">08:00 AM</option>
+                                <option value="02:00 PM">02:00 PM</option>
+                                <option value="08:00 PM">08:00 PM</option>
+                                <option value="10:00 PM">10:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-route"></i> Select Route</label>
+                        <select id="routeSelect" required>
+                            <option value="">-- Choose Route --</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-star"></i> Travel Class</label>
+                        <div class="class-toggle">
+                            <input type="radio" name="travelClass" id="regular" value="Regular" checked>
+                            <label for="regular">Regular Class</label>
+                            <input type="radio" name="travelClass" id="vip" value="VIP">
+                            <label for="vip">VIP / First Class</label>
+                        </div>
+                    </div>
+                    <div class="price-display">
+                        <div class="price-label">Total Price</div>
+                        <div class="price-value" id="priceValue">KSh 0</div>
+                        <div class="price-currency" id="priceCurrency">Select a route to see pricing</div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="seat-selection-wrapper fade-in">
+                <h3><i class="fas fa-chair"></i> Select Your Seat</h3>
+                <div class="bus-layout">
+                    <div class="bus-front"><i class="fas fa-steering-wheel"></i> Driver</div>
+                    <div class="seat-grid" id="seatGrid"></div>
+                    <div class="seat-legend">
+                        <div class="legend-item"><div class="legend-box available"></div> Available</div>
+                        <div class="legend-item"><div class="legend-box selected"></div> Selected</div>
+                        <div class="legend-item"><div class="legend-box occupied"></div> Booked</div>
+                        <div class="legend-item"><div class="legend-box vip"></div> VIP Seat</div>
+                    </div>
+                </div>
+                <button class="btn-primary" style="width: 100%; margin-top: 1.5rem;" onclick="openCheckout()">
+                    <i class="fab fa-whatsapp"></i> Continue to WhatsApp Checkout
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section" id="gallery">
+        <div class="section-header fade-in">
+            <div class="section-tag">Our Fleet</div>
+            <h2>Travel in Comfort</h2>
+            <p>Modern Scania coaches equipped with premium amenities for the ultimate travel experience.</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item wide"><img src="/mnt/agents/upload/1001472483.jpg" alt="Bebeto Coaches Fleet"></div>
+            <div class="gallery-item tall"><img src="/mnt/agents/upload/1001472482.jpg" alt="VIP Interior"></div>
+            <div class="gallery-item"><img src="/mnt/agents/upload/1001472474.jpg" alt="Bus Front View"></div>
+            <div class="gallery-item"><img src="/mnt/agents/upload/1001472477.jpg" alt="Regular Interior"></div>
+            <div class="gallery-item wide"><img src="/mnt/agents/upload/1001472485.jpg" alt="Fleet Lineup"></div>
+            <div class="gallery-item"><img src="/mnt/agents/upload/1001472487.jpg" alt="Kampala Nairobi Route"></div>
+            <div class="gallery-item"><img src="/mnt/agents/upload/1001472484.jpg" alt="Bus Parking"></div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-icon"><i class="fas fa-bus"></i></div>
+                    <div>Bebeto <span>Coaches</span></div>
+                </a>
+                <p>The Pride of South Sudan and East Africa. Connecting major cities across the region with safe, comfortable, and reliable bus services.</p>
+                <div class="social-links" style="margin-top: 1.5rem;">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#routes">Routes</a></li>
+                    <li><a href="#book">Book Now</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Popular Routes</h4>
+                <ul>
+                    <li><a href="#">Nairobi &harr; Kampala</a></li>
+                    <li><a href="#">Nairobi &rarr; Juba</a></li>
+                    <li><a href="#">Nairobi &rarr; Kigali</a></li>
+                    <li><a href="#">Kampala &rarr; Juba</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><a href="tel:+254712345678"><i class="fab fa-whatsapp"></i> +254 712 345 678</a></li>
+                    <li><a href="mailto:info@bebetocoaches.co.ke">info@bebetocoaches.co.ke</a></li>
+                    <li><a href="#">Nairobi, Kenya</a></li>
+                    <li><a href="#">Juba, South Sudan</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; Bebeto Coaches. All rights reserved. | bebetocoaches.co.ke</p>
+            <p>Crafted with <i class="fas fa-heart" style="color: var(--primary-orange);"></i> for East Africa</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/254712345678?text=Hello%20Bebeto%20Coaches!%20I%20would%20like%20to%20inquire%20about%20booking%20a%20ticket." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeCheckout()"><i class="fas fa-times"></i></button>
+            <h3><i class="fas fa-check-circle" style="color: var(--success);"></i> Confirm Your Booking</h3>
+            <p class="modal-subtitle">Review your trip details and send via WhatsApp for instant confirmation.</p>
+            <div class="booking-summary">
+                <div class="summary-row"><span>Passenger</span><span id="summaryName">-</span></div>
+                <div class="summary-row"><span>Route</span><span id="summaryRoute">-</span></div>
+                <div class="summary-row"><span>Date & Time</span><span id="summaryDate">-</span></div>
+                <div class="summary-row"><span>Class</span><span id="summaryClass">-</span></div>
+                <div class="summary-row"><span>Seat(s)</span><span id="summarySeats">-</span></div>
+                <div class="summary-row"><span>Total Amount</span><span id="summaryTotal">-</span></div>
+            </div>
+            <a href="#" class="whatsapp-btn" id="whatsappLink" target="_blank">
+                <i class="fab fa-whatsapp"></i> Complete Booking on WhatsApp
+            </a>
+            <p class="whatsapp-note">You will be redirected to WhatsApp to confirm your reservation with our team.</p>
+        </div>
+    </div>
+
+    <script>
+        const routes = [
+            { id: 'nrb-kla', from: 'Nairobi', to: 'Kampala', fromFlag: '🇰🇪', toFlag: '🇺🇬', regular: 'KSh 4,000', vip: 'KSh 5,000 – KSh 6,500', currency: 'KSh' },
+            { id: 'kla-nrb', from: 'Kampala', to: 'Nairobi', fromFlag: '🇺🇬', toFlag: '🇰🇪', regular: 'UGX 115,000 – UGX 120,000', vip: 'UGX 140,000 – UGX 188,000', currency: 'UGX' },
+            { id: 'nrb-jinja', from: 'Nairobi', to: 'Jinja', fromFlag: '🇰🇪', toFlag: '🇺🇬', regular: 'KSh 3,500', vip: 'KSh 6,000', currency: 'KSh' },
+            { id: 'nrb-kigali', from: 'Nairobi', to: 'Kigali', fromFlag: '🇰🇪', toFlag: '🇷🇼', regular: 'KSh 7,000', vip: 'KSh 8,500 – KSh 11,000', currency: 'KSh' },
+            { id: 'nrb-juba', from: 'Nairobi', to: 'Juba', fromFlag: '🇰🇪', toFlag: '🇸🇸', regular: 'KSh 9,500', vip: 'KSh 10,000 – KSh 11,500', currency: 'KSh' },
+            { id: 'kla-juba', from: 'Kampala', to: 'Juba', fromFlag: '🇺🇬', toFlag: '🇸🇸', regular: 'UGX 120,000 – UGX 140,000', vip: 'UGX 190,000 – UGX 200,000', currency: 'UGX' },
+            { id: 'nrb-buj', from: 'Nairobi', to: 'Bujumbura', fromFlag: '🇰🇪', toFlag: '🇧🇮', regular: 'KSh 7,500', vip: 'KSh 9,000', currency: 'KSh' },
+            { id: 'nrb-goma', from: 'Nairobi', to: 'Goma', fromFlag: '🇰🇪', toFlag: '🇨🇩', regular: 'KSh 8,000', vip: 'KSh 11,000', currency: 'KSh' }
+        ];
+
+        let selectedSeats = [];
+        let currentRoute = null;
+        let currentClass = 'Regular';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderRoutes();
+            renderSeats();
+            populateRouteSelect();
+            setupEventListeners();
+            setupScrollAnimations();
+            setupNavbar();
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('travelDate').min = today;
+        });
+
+        function renderRoutes() {
+            const grid = document.getElementById('routesGrid');
+            grid.innerHTML = routes.map(route => `
+                <div class="route-card fade-in">
+                    <div class="route-header">
+                        <div class="route-title">
+                            ${route.fromFlag} ${route.from} <i class="fas fa-arrow-right" style="color: var(--primary-orange);"></i> ${route.to} ${route.toFlag}
+                        </div>
+                    </div>
+                    <div class="route-prices">
+                        <div class="price-box regular">
+                            <div class="price-box-label">Regular Class</div>
+                            <div class="price-box-amount">${route.regular}</div>
+                        </div>
+                        <div class="price-box vip">
+                            <div class="price-box-label">VIP / First Class</div>
+                            <div class="price-box-amount">${route.vip}</div>
+                        </div>
+                    </div>
+                    <button class="route-book-btn" onclick="quickBook('${route.id}')">
+                        <i class="fas fa-ticket"></i> Book This Route
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function populateRouteSelect() {
+            const select = document.getElementById('routeSelect');
+            routes.forEach(route => {
+                const option = document.createElement('option');
+                option.value = route.id;
+                option.textContent = `${route.from} → ${route.to}`;
+                select.appendChild(option);
+            });
+        }
+
+        function renderSeats() {
+            const grid = document.getElementById('seatGrid');
+            grid.innerHTML = '';
+
+            if (currentClass === 'VIP') {
+                // VIP: 2+1 layout, 24 seats (8 rows)
+                grid.className = 'seat-grid vip-layout';
+                const occupiedSeats = ['B2','C1','D2','E1','F2','G1'];
+                const seatLabels = ['A','B','C','D','E','F','G','H'];
+                let seatNum = 1;
+                for (let row = 0; row < 8; row++) {
+                    // Left side - 2 seats
+                    for (let col = 0; col < 2; col++) {
+                        const seatId = seatLabels[row] + (col + 1);
+                        const seat = createSeat(seatNum, seatId, occupiedSeats.includes(seatId), true);
+                        grid.appendChild(seat);
+                    }
+                    // Aisle
+                    const aisle = document.createElement('div');
+                    aisle.className = 'aisle-gap';
+                    aisle.textContent = seatLabels[row];
+                    grid.appendChild(aisle);
+                    // Right side - 1 seat
+                    const seatId = seatLabels[row] + '3';
+                    const seat = createSeat(seatNum + 2, seatId, occupiedSeats.includes(seatId), true);
+                    grid.appendChild(seat);
+                    seatNum += 3;
+                }
+            } else {
+                // Regular: 2+2 layout, 48 seats (12 rows)
+                grid.className = 'seat-grid regular-layout';
+                const occupiedSeats = ['A1','B2','C1','D2','E1','F2','G1','H2','I1','J2','K1','L2'];
+                const seatLabels = ['A','B','C','D','E','F','G','H','I','J','K','L'];
+                let seatNum = 1;
+                for (let row = 0; row < 12; row++) {
+                    // Left side - 2 seats
+                    for (let col = 0; col < 2; col++) {
+                        const seatId = seatLabels[row] + (col + 1);
+                        const seat = createSeat(seatNum, seatId, occupiedSeats.includes(seatId), false);
+                        grid.appendChild(seat);
+                    }
+                    // Aisle
+                    const aisle = document.createElement('div');
+                    aisle.className = 'aisle-gap';
+                    aisle.textContent = seatLabels[row];
+                    grid.appendChild(aisle);
+                    // Right side - 2 seats
+                    for (let col = 0; col < 2; col++) {
+                        const seatId = seatLabels[row] + (col + 3);
+                        const seat = createSeat(seatNum + 2, seatId, occupiedSeats.includes(seatId), false);
+                        grid.appendChild(seat);
+                    }
+                    seatNum += 4;
+                }
+            }
+        }
+
+        function createSeat(num, seatId, isOccupied, isVip) {
+            const seat = document.createElement('div');
+            seat.className = 'seat';
+            seat.textContent = seatId;
+            seat.dataset.seat = num;
+            seat.dataset.seatId = seatId;
+            if (isOccupied) seat.classList.add('occupied');
+            if (isVip) seat.classList.add('vip-seat');
+            seat.addEventListener('click', () => toggleSeat(seat, num));
+            return seat;
+        }
+
+        function toggleSeat(element, seatNum) {
+            if (element.classList.contains('occupied')) return;
+            const seatId = element.dataset.seatId;
+            if (element.classList.contains('selected')) {
+                element.classList.remove('selected');
+                selectedSeats = selectedSeats.filter(s => s !== seatId);
+            } else {
+                element.classList.add('selected');
+                selectedSeats.push(seatId);
+            }
+            updatePrice();
+        }
+
+        function setupEventListeners() {
+            document.getElementById('routeSelect').addEventListener('change', updatePrice);
+            document.querySelectorAll('input[name="travelClass"]').forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    currentClass = e.target.value;
+                    updatePrice();
+                    updateSeatVisibility();
+                });
+            });
+        }
+
+        function updateSeatVisibility() {
+            selectedSeats = [];
+            document.querySelectorAll('.seat.selected').forEach(s => s.classList.remove('selected'));
+            renderSeats();
+            updatePrice();
+        }
+
+        function updatePrice() {
+            const routeId = document.getElementById('routeSelect').value;
+            const priceValue = document.getElementById('priceValue');
+            const priceCurrency = document.getElementById('priceCurrency');
+            if (!routeId) {
+                priceValue.textContent = 'KSh 0';
+                priceCurrency.textContent = 'Select a route to see pricing';
+                return;
+            }
+            currentRoute = routes.find(r => r.id === routeId);
+            const priceText = currentClass === 'Regular' ? currentRoute.regular : currentRoute.vip;
+            const basePrice = extractPrice(priceText);
+            const total = basePrice * selectedSeats.length;
+            priceValue.textContent = `${currentRoute.currency} ${total.toLocaleString()}`;
+            priceCurrency.textContent = `${selectedSeats.length} seat(s) x ${priceText}`;
+        }
+
+        function extractPrice(priceStr) {
+            const match = priceStr.replace(/,/g, '').match(/\d+/);
+            return match ? parseInt(match[0]) : 0;
+        }
+
+        function quickBook(routeId) {
+            document.getElementById('routeSelect').value = routeId;
+            updatePrice();
+            document.getElementById('book').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openCheckout() {
+            const name = document.getElementById('fullName').value;
+            const date = document.getElementById('travelDate').value;
+            const time = document.getElementById('departureTime').value;
+            if (!name || !date || !currentRoute || selectedSeats.length === 0) {
+                alert('Please fill in all details and select at least one seat.');
+                return;
+            }
+            const priceText = currentClass === 'Regular' ? currentRoute.regular : currentRoute.vip;
+            const basePrice = extractPrice(priceText);
+            const total = basePrice * selectedSeats.length;
+            document.getElementById('summaryName').textContent = name;
+            document.getElementById('summaryRoute').textContent = `${currentRoute.from} → ${currentRoute.to}`;
+            document.getElementById('summaryDate').textContent = `${date} at ${time}`;
+            document.getElementById('summaryClass').textContent = currentClass;
+            document.getElementById('summarySeats').textContent = selectedSeats.sort().join(', ');
+            document.getElementById('summaryTotal').textContent = `${currentRoute.currency} ${total.toLocaleString()}`;
+            const message = `Hello Bebeto Coaches!%0A%0AI would like to book a ticket with the following details:%0A%0A👤 *Name:* ${name}%0A🛣️ *Route:* ${currentRoute.from} → ${currentRoute.to}%0A📅 *Date:* ${date}%0A🕐 *Time:* ${time}%0A💺 *Class:* ${currentClass}%0A🎫 *Seat(s):* ${selectedSeats.sort().join(', ')}%0A💰 *Total:* ${currentRoute.currency} ${total.toLocaleString()}%0A%0APlease confirm my booking. Thank you!`;
+            document.getElementById('whatsappLink').href = `https://wa.me/254712345678?text=${message}`;
+            document.getElementById('checkoutModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkoutModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('checkoutModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('checkoutModal')) closeCheckout();
+        });
+
+        function setupScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        }
+
+        function setupNavbar() {
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.style.background = 'rgba(10,10,10,0.95)';
+                    navbar.style.boxShadow = '0 5px 30px rgba(0,0,0,0.3)';
+                } else {
+                    navbar.style.background = 'rgba(10,10,10,0.85)';
+                    navbar.style.boxShadow = 'none';
+                }
+            });
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+</html>
