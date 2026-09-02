@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trinity Bus Service | East Africa Travel</title>
+    <title>Trinity Bus Service | Premium East African Bus Travel</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -25,7 +25,6 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--dark-gray); }
         ::-webkit-scrollbar-thumb { background: var(--primary-orange); border-radius: 4px; }
-        
         nav { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(10,10,10,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(242,101,34,0.2); transition: all 0.3s ease; }
         .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 0.75rem; font-weight: 900; font-size: 1.5rem; color: var(--white); text-decoration: none; }
@@ -39,25 +38,33 @@
         .nav-cta { background: linear-gradient(135deg, var(--primary-orange), var(--dark-orange)); color: var(--white); padding: 0.6rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; border: none; cursor: pointer; }
         .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(242,101,34,0.3); }
         .mobile-menu-btn { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
-
-        /* Trinity Hero Structure Style */
+        
         .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; padding-top: 80px; overflow: hidden; }
         .hero-bg { position: absolute; inset: 0; z-index: 0; }
         .hero-bg::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.7) 50%, rgba(30,136,229,0.15) 100%); z-index: 1; }
         .hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
-        .hero-content { position: relative; z-index: 2; max-width: 1400px; margin: 0 auto; padding: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .hero-text h1 { font-size: 4rem; font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; }
+        .hero-content { position: relative; z-index: 2; max-width: 1400px; margin: 0 auto; padding: 2rem; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center; width: 100%; }
+        .hero-text h1 { font-size: 3.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; }
         .hero-text h1 .highlight { background: linear-gradient(135deg, var(--primary-orange), var(--primary-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .hero-text p { font-size: 1.2rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 2rem; max-width: 500px; }
-        .hero-stats { display: flex; gap: 2.5rem; margin-bottom: 2.5rem; }
+        .hero-text p { font-size: 1.15rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 2rem; max-width: 600px; }
+        
+        /* Trinity Quick Search Widget */
+        .search-widget { background: rgba(255, 255, 255, 0.07); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 20px; padding: 1.5rem; box-shadow: 0 20px 40px rgba(0,0,0,0.4); margin-bottom: 2rem; }
+        .search-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+        .search-field label { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.6); margin-bottom: 0.4rem; font-weight: 600; }
+        .search-field select { width: 100%; padding: 0.8rem 1rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; color: var(--white); font-size: 0.95rem; outline: none; }
+        .search-field select option { background: var(--dark-gray); color: var(--white); }
+        
+        .hero-stats { display: flex; gap: 2.5rem; margin-bottom: 2rem; }
         .stat { text-align: left; }
         .stat-number { font-size: 2rem; font-weight: 800; color: var(--primary-orange); }
         .stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; }
         .hero-buttons { display: flex; gap: 1rem; }
-        .btn-primary { background: linear-gradient(135deg, var(--primary-orange), var(--dark-orange)); color: var(--white); padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem; border: none; cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem; }
+        .btn-primary { background: linear-gradient(135deg, var(--primary-orange), var(--dark-orange)); color: var(--white); padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem; border: none; cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem; justify-content: center; }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(242,101,34,0.4); }
-        .btn-secondary { background: transparent; color: var(--white); padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem; border: 2px solid rgba(255,255,255,0.2); cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem; }
+        .btn-secondary { background: transparent; color: var(--white); padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem; border: 2px solid rgba(255,255,255,0.2); cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem; justify-content: center; }
         .btn-secondary:hover { border-color: var(--primary-orange); color: var(--primary-orange); }
+        
         .hero-image { position: relative; }
         .hero-image img { width: 100%; border-radius: 24px; box-shadow: 0 40px 80px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); }
         .floating-card { position: absolute; background: rgba(255,255,255,0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; animation: float 3s ease-in-out infinite; }
@@ -68,16 +75,15 @@
         .floating-card div { font-size: 0.85rem; }
         .floating-card strong { display: block; font-size: 1rem; }
 
-        /* Trinity Features Grid Feature */
+        /* Trinity Features Section */
         .features-section { padding: 4rem 2rem; background: var(--dark-gray); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
         .features-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-        .feature-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 2rem; border-radius: 20px; transition: all 0.3s ease; }
-        .feature-card:hover { border-color: var(--primary-orange); transform: translateY(-5px); }
-        .feature-icon { width: 50px; height: 50px; background: rgba(242,101,34,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary-orange); font-size: 1.25rem; margin-bottom: 1.25rem; }
-        .feature-card h3 { font-size: 1.1rem; margin-bottom: 0.75rem; font-weight: 700; }
-        .feature-card p { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.6; }
+        .feature-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2rem; transition: transform 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); border-color: rgba(242,101,34,0.3); }
+        .feature-icon { width: 50px; height: 50px; background: rgba(242,101,34,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary-orange); font-size: 1.3rem; margin-bottom: 1.2rem; }
+        .feature-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .feature-card p { color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.6; }
 
-        /* Booking & Structure Layout */
         .booking-section { padding: 6rem 2rem; background: linear-gradient(180deg, var(--black) 0%, var(--dark-gray) 100%); position: relative; }
         .booking-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--primary-orange), transparent); }
         .section-header { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
@@ -85,7 +91,6 @@
         .section-header h2 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; }
         .section-header p { color: rgba(255,255,255,0.6); font-size: 1.1rem; line-height: 1.7; }
         .booking-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-        
         .booking-form-wrapper { background: var(--glass); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 2.5rem; }
         .form-group { margin-bottom: 1.5rem; }
         .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; color: rgba(255,255,255,0.8); }
@@ -93,17 +98,15 @@
         .form-group select:focus, .form-group input:focus { border-color: var(--primary-orange); background: rgba(255,255,255,0.08); }
         .form-group select option { background: var(--dark-gray); color: var(--white); }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        
         .class-toggle { display: flex; background: rgba(255,255,255,0.05); border-radius: 12px; padding: 4px; border: 1px solid rgba(255,255,255,0.1); }
         .class-toggle label { flex: 1; text-align: center; padding: 0.8rem; border-radius: 10px; cursor: pointer; transition: all 0.3s ease; font-weight: 500; font-size: 0.9rem; }
         .class-toggle input[type="radio"] { display: none; }
         .class-toggle input[type="radio"]:checked + label { background: linear-gradient(135deg, var(--primary-orange), var(--dark-orange)); color: var(--white); font-weight: 600; }
-        
         .price-display { background: linear-gradient(135deg, rgba(242,101,34,0.15), rgba(30,136,229,0.1)); border: 1px solid rgba(242,101,34,0.3); border-radius: 16px; padding: 1.5rem; margin-top: 1.5rem; text-align: center; }
         .price-display .price-label { font-size: 0.85rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
         .price-display .price-value { font-size: 2.5rem; font-weight: 800; color: var(--primary-orange); }
         .price-display .price-currency { font-size: 1rem; color: rgba(255,255,255,0.6); }
-
+        
         .seat-selection-wrapper { background: var(--glass); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 2.5rem; }
         .seat-selection-wrapper h3 { font-size: 1.3rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
         .seat-selection-wrapper h3 i { color: var(--primary-orange); }
@@ -126,37 +129,29 @@
         .legend-box.selected { background: linear-gradient(135deg, var(--primary-orange), var(--dark-orange)); }
         .legend-box.occupied { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.1); }
         .legend-box.vip { border-color: rgba(30,136,229,0.5); background: rgba(30,136,229,0.1); }
-
-        /* Routes Structure Style */
+        
         .routes-section { padding: 6rem 2rem; background: var(--black); position: relative; }
         .routes-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.5rem; }
         .route-card { background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; transition: all 0.4s ease; position: relative; overflow: hidden; }
         .route-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--primary-orange), var(--primary-blue)); transition: width 0.4s ease; }
         .route-card:hover::before { width: 100%; opacity: 0.05; }
         .route-card:hover { transform: translateY(-5px); border-color: rgba(242,101,34,0.3); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
-        .route-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
+        .route-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
         .route-title { font-size: 1.2rem; font-weight: 700; }
         .route-title i { color: var(--primary-orange); margin: 0 0.5rem; }
+        .route-meta { display: flex; gap: 1rem; font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-bottom: 1.5rem; }
+        .route-meta span { display: inline-flex; align-items: center; gap: 0.3rem; }
         .route-prices { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
         .price-box { background: rgba(255,255,255,0.03); border-radius: 12px; padding: 1rem; text-align: center; border: 1px solid rgba(255,255,255,0.08); }
         .price-box.regular { border-color: rgba(255,255,255,0.15); }
         .price-box.vip { border-color: rgba(30,136,229,0.3); background: rgba(30,136,229,0.05); }
         .price-box-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.5); margin-bottom: 0.5rem; }
-        .price-box-amount { font-size: 1.3rem; font-weight: 700; }
+        .price-box-amount { font-size: 1.2rem; font-weight: 700; }
         .price-box.regular .price-box-amount { color: var(--white); }
         .price-box.vip .price-box-amount { color: var(--primary-blue); }
         .route-book-btn { width: 100%; margin-top: 1.5rem; padding: 0.9rem; background: transparent; border: 1px solid var(--primary-orange); color: var(--primary-orange); border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-family: 'Inter', sans-serif; font-size: 0.95rem; }
         .route-book-btn:hover { background: var(--primary-orange); color: var(--white); }
-
-        /* Trinity How To Book & Process Steps Section */
-        .process-section { padding: 6rem 2rem; background: linear-gradient(180deg, var(--black), var(--dark-gray)); }
-        .process-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .process-step-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 2.5rem; position: relative; }
-        .step-number { font-size: 2.5rem; font-weight: 900; color: rgba(242,101,34,0.3); margin-bottom: 1rem; }
-        .process-step-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; }
-        .process-step-card p { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.6; }
-
-        /* Gallery Layout */
+        
         .gallery-section { padding: 6rem 2rem; background: linear-gradient(180deg, var(--dark-gray), var(--black)); }
         .gallery-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 250px; gap: 1rem; }
         .gallery-item { border-radius: 16px; overflow: hidden; position: relative; cursor: pointer; transition: all 0.4s ease; }
@@ -166,8 +161,7 @@
         .gallery-item:hover::after { opacity: 1; }
         .gallery-item.tall { grid-row: span 2; }
         .gallery-item.wide { grid-column: span 2; }
-
-        /* Modal Overlay & WhatsApp Workflow */
+        
         .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); z-index: 2000; display: none; align-items: center; justify-content: center; padding: 2rem; }
         .modal-overlay.active { display: flex; }
         .modal { background: var(--dark-gray); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 2.5rem; position: relative; animation: modalSlide 0.4s ease; }
@@ -183,8 +177,7 @@
         .whatsapp-btn { width: 100%; padding: 1.2rem; background: linear-gradient(135deg, #25D366, #128C7E); color: var(--white); border: none; border-radius: 16px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.75rem; font-family: 'Inter', sans-serif; text-decoration: none; }
         .whatsapp-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(37,211,102,0.3); }
         .whatsapp-note { text-align: center; margin-top: 1rem; font-size: 0.85rem; color: rgba(255,255,255,0.4); }
-
-        /* Footer */
+        
         footer { background: var(--dark-gray); border-top: 1px solid rgba(255,255,255,0.05); padding: 4rem 2rem 2rem; }
         .footer-content { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
         .footer-brand p { color: rgba(255,255,255,0.5); margin-top: 1rem; line-height: 1.7; font-size: 0.95rem; }
@@ -204,7 +197,7 @@
         
         .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
-
+        
         @media (max-width: 1024px) {
             .hero-content { grid-template-columns: 1fr; text-align: center; }
             .hero-text h1 { font-size: 3rem; }
@@ -214,11 +207,12 @@
             .booking-container { grid-template-columns: 1fr; }
             .footer-content { grid-template-columns: 1fr 1fr; }
             .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .search-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .mobile-menu-btn { display: block; }
-            .hero-text h1 { font-size: 2.5rem; }
+            .hero-text h1 { font-size: 2.2rem; }
             .section-header h2 { font-size: 2rem; }
             .form-row { grid-template-columns: 1fr; }
             .routes-grid { grid-template-columns: 1fr; }
@@ -238,76 +232,103 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#routes">Routes & Fares</a></li>
-                <li><a href="#onboard">Onboard</a></li>
+                <li><a href="#routes">Routes & Prices</a></li>
                 <li><a href="#book">Book Now</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <a href="#book" class="nav-cta"><i class="fas fa-ticket"></i> Book via WhatsApp</a>
+            <a href="#book" class="nav-cta"><i class="fas fa-ticket"></i> Book on WhatsApp</a>
             <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
 
     <section class="hero" id="home">
         <div class="hero-bg">
-            <img src="images/1001472485.jpg" alt="Trinity Bus Service Fleet">
+            <img src="images/1001472485.jpg" alt="Trinity Bus Fleet">
         </div>
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Travel Across East Africa in <span class="highlight">Comfort</span></h1>
-                <p>Safe, affordable, and on schedule — every time. Daily departures connecting Kenya, Uganda, Rwanda, South Sudan, Burundi, and DR Congo.</p>
+                <h1>Travel Across East Africa in <span class="highlight">Comfort & Safety</span></h1>
+                <p>Safe, affordable, and on schedule — every time. Daily departures connecting Nairobi to Kampala, Kigali, Juba, Bujumbura, and Goma.</p>
+                
+                <!-- Trinity Quick Booking Form Bar -->
+                <div class="search-widget">
+                    <div class="search-grid">
+                        <div class="search-field">
+                            <label><i class="fas fa-map-marker-alt"></i> Departing From</label>
+                            <select id="quickOrigin">
+                                <option value="Nairobi">Nairobi, Kenya</option>
+                                <option value="Kampala">Kampala, Uganda</option>
+                                <option value="Kigali">Kigali, Rwanda</option>
+                            </select>
+                        </div>
+                        <div class="search-field">
+                            <label><i class="fas fa-flag-checkered"></i> Traveling To</label>
+                            <select id="quickDestination">
+                                <option value="Kampala">Kampala</option>
+                                <option value="Kigali">Kigali</option>
+                                <option value="Juba">Juba</option>
+                                <option value="Bujumbura">Bujumbura</option>
+                                <option value="Goma">Goma</option>
+                            </select>
+                        </div>
+                        <div class="search-field">
+                            <label><i class="fas fa-users"></i> Passengers</label>
+                            <select id="quickPassengers">
+                                <option value="1">1 Passenger</option>
+                                <option value="2">2 Passengers</option>
+                                <option value="3">3 Passengers</option>
+                                <option value="4">4+ Passengers</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn-primary" style="width: 100%; padding: 0.8rem;" onclick="applyQuickSearch()">
+                        <i class="fas fa-search"></i> Check Availability & Fares
+                    </button>
+                </div>
+
                 <div class="hero-stats">
                     <div class="stat"><div class="stat-number">5+</div><div class="stat-label">Destinations</div></div>
                     <div class="stat"><div class="stat-number">Daily</div><div class="stat-label">Departures</div></div>
                     <div class="stat"><div class="stat-number">24/7</div><div class="stat-label">Support</div></div>
                 </div>
-                <div class="hero-buttons">
-                    <a href="#book" class="btn-primary"><i class="fas fa-ticket"></i> Book on WhatsApp</a>
-                    <a href="#routes" class="btn-secondary"><i class="fas fa-map-marker-alt"></i> View Routes & Prices</a>
-                </div>
             </div>
             <div class="hero-image">
-                <img src="images/1001472486.jpg" alt="Trinity Bus Service Coach">
+                <img src="images/1001472486.jpg" alt="Trinity Luxury Coach">
                 <div class="floating-card card-1">
                     <i class="fas fa-shield-alt"></i>
-                    <div><strong>Safety First</strong>Certified Drivers</div>
+                    <div><strong>Licensed Drivers</strong>Cross-Border Ready</div>
                 </div>
                 <div class="floating-card card-2">
                     <i class="fas fa-wifi"></i>
-                    <div><strong>Onboard Comfort</strong>Reclining Seats</div>
+                    <div><strong>Free Onboard Wi-Fi</strong>Stay Connected</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Trinity Onboard Features Feature Section -->
-    <section class="features-section" id="onboard">
-        <div class="section-header fade-in" style="margin-bottom: 3rem;">
-            <div class="section-tag">Onboard Comfort</div>
-            <h2>Designed for Long-Distance Travel</h2>
-            <p>Every journey with Trinity Bus Service comes with premium amenities built for cross-border transit.</p>
-        </div>
+    <!-- Trinity Onboard Features Bar -->
+    <section class="features-section">
         <div class="features-grid">
-            <div class="feature-card fade-in">
-                <div class="feature-icon"><i class="fas fa-couch"></i></div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-chair"></i></div>
                 <h3>Reclining Seats</h3>
-                <p>Spacious, cushioned reclining seats with adjustable headrests for maximum comfort.</p>
+                <p>Spacious, cushioned reclining seats with adjustable headrests for ultimate long-distance comfort.</p>
             </div>
-            <div class="feature-card fade-in">
+            <div class="feature-card">
                 <div class="feature-icon"><i class="fas fa-snowflake"></i></div>
                 <h3>Air Conditioned</h3>
-                <p>Fully climate-controlled cabins for a pleasant journey in any weather.</p>
+                <p>Fully climate-controlled cabins providing a pleasant environment throughout your journey.</p>
             </div>
-            <div class="feature-card fade-in">
+            <div class="feature-card">
                 <div class="feature-icon"><i class="fas fa-plug"></i></div>
                 <h3>USB Charging</h3>
-                <p>Charging ports at every seat to keep all your devices powered throughout.</p>
+                <p>Convenient charging ports at every seat to keep all your electronic devices fully powered.</p>
             </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon"><i class="fas fa-user-shield"></i></div>
-                <h3>Licensed Drivers</h3>
-                <p>Professional, experienced, and vetted drivers with cross-border permits.</p>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-passport"></i></div>
+                <h3>Border Assistance</h3>
+                <p>Dedicated crew assistance to help streamline immigration procedures at every border crossing.</p>
             </div>
         </div>
     </section>
@@ -316,42 +337,16 @@
         <div class="section-header fade-in">
             <div class="section-tag">Our Network</div>
             <h2>Routes & Fares</h2>
-            <p>Transparent pricing for Regular and VIP / First Class options across our network.</p>
+            <p>Direct international routes across East Africa with transparent, reliable pricing.</p>
         </div>
         <div class="routes-grid" id="routesGrid"></div>
-    </section>
-
-    <!-- Trinity How To Book Section -->
-    <section class="process-section">
-        <div class="section-header fade-in">
-            <div class="section-tag">Simple Process</div>
-            <h2>How to Book Your Trip</h2>
-            <p>Get on the road in three easy steps.</p>
-        </div>
-        <div class="process-grid">
-            <div class="process-step-card fade-in">
-                <div class="step-number">01</div>
-                <h3>Choose Route & Departure</h3>
-                <p>Select your origin, destination, travel date, and check available time slots.</p>
-            </div>
-            <div class="process-step-card fade-in">
-                <div class="step-number">02</div>
-                <h3>Pick Your Seats</h3>
-                <p>Choose your exact seat(s) on the live seat map and fill in your passenger details.</p>
-            </div>
-            <div class="process-step-card fade-in">
-                <div class="step-number">03</div>
-                <h3>Confirm via WhatsApp</h3>
-                <p>Send your reservation directly to our team via WhatsApp for immediate confirmation.</p>
-            </div>
-        </div>
     </section>
 
     <section class="booking-section" id="book">
         <div class="section-header fade-in">
             <div class="section-tag">Reserve Your Seat</div>
             <h2>Book Your Journey</h2>
-            <p>Select your route, travel class, and preferred seat. Complete your booking via WhatsApp for quick confirmation.</p>
+            <p>Select your route, travel class, and preferred seat. Complete your reservation instantly via WhatsApp.</p>
         </div>
         <div class="booking-container">
             <div class="booking-form-wrapper fade-in">
@@ -363,7 +358,7 @@
                             <input type="text" id="fullName" placeholder="John Doe" required>
                         </div>
                         <div class="form-group">
-                            <label><i class="fas fa-phone"></i> Phone Number</label>
+                            <label><i class="fas fa-phone"></i> Phone Number / WhatsApp</label>
                             <input type="tel" id="phoneNumber" placeholder="+254 712 345 678" required>
                         </div>
                     </div>
@@ -375,9 +370,9 @@
                         <div class="form-group">
                             <label><i class="fas fa-clock"></i> Departure Time</label>
                             <select id="departureTime">
-                                <option value="03:00 PM">03:00 PM</option>
-                                <option value="09:00 PM">09:00 PM</option>
-                                <option value="06:00 AM">06:00 AM</option>
+                                <option value="Morning Departure (Daily)">Morning Departure (~06:00 AM)</option>
+                                <option value="Day Departure (Daily)">Day Departure (~08:00 AM)</option>
+                                <option value="Evening Departure (Daily)">Evening Departure (~08:00 PM)</option>
                             </select>
                         </div>
                     </div>
@@ -391,14 +386,14 @@
                         <label><i class="fas fa-star"></i> Travel Class</label>
                         <div class="class-toggle">
                             <input type="radio" name="travelClass" id="regular" value="Regular" checked>
-                            <label for="regular">Regular Class</label>
+                            <label for="regular">Standard Class</label>
                             <input type="radio" name="travelClass" id="vip" value="VIP">
-                            <label for="vip">VIP / First Class</label>
+                            <label for="vip">VIP / Executive</label>
                         </div>
                     </div>
                     <div class="price-display">
                         <div class="price-label">Total Price</div>
-                        <div class="price-value" id="priceValue">KSh 0</div>
+                        <div class="price-value" id="priceValue">KES 0</div>
                         <div class="price-currency" id="priceCurrency">Select a route to see pricing</div>
                     </div>
                 </form>
@@ -407,7 +402,7 @@
             <div class="seat-selection-wrapper fade-in">
                 <h3><i class="fas fa-chair"></i> Select Your Seat</h3>
                 <div class="bus-layout">
-                    <div class="bus-front"><i class="fas fa-steering-wheel"></i> Driver</div>
+                    <div class="bus-front"><i class="fas fa-steering-wheel"></i> Driver Area</div>
                     <div class="seat-grid" id="seatGrid"></div>
                     <div class="seat-legend">
                         <div class="legend-item"><div class="legend-box available"></div> Available</div>
@@ -427,16 +422,16 @@
         <div class="section-header fade-in">
             <div class="section-tag">Our Fleet</div>
             <h2>Travel in Comfort</h2>
-            <p>Modern coaches equipped with premium amenities for the ultimate travel experience.</p>
+            <p>Modern luxury coaches equipped with premium amenities for cross-border journeys.</p>
         </div>
         <div class="gallery-grid">
-            <div class="gallery-item wide"><img src="images/1001472483.jpg" alt="Trinity Bus Service Fleet"></div>
+            <div class="gallery-item wide"><img src="images/1001472483.jpg" alt="Trinity Fleet"></div>
             <div class="gallery-item tall"><img src="images/1001472482.jpg" alt="VIP Interior"></div>
-            <div class="gallery-item"><img src="images/1001472474.jpg" alt="Bus Front View"></div>
-            <div class="gallery-item"><img src="images/1001472477.jpg" alt="Regular Interior"></div>
-            <div class="gallery-item wide"><img src="images/1001472485.jpg" alt="Fleet Lineup"></div>
-            <div class="gallery-item"><img src="images/1001472487.jpg" alt="Kampala Nairobi Route"></div>
-            <div class="gallery-item"><img src="images/1001472484.jpg" alt="Bus Parking"></div>
+            <div class="gallery-item"><img src="images/1001472474.jpg" alt="Bus Exterior"></div>
+            <div class="gallery-item"><img src="images/1001472477.jpg" alt="Passenger Cabin"></div>
+            <div class="gallery-item wide"><img src="images/1001472485.jpg" alt="Bus Lineup"></div>
+            <div class="gallery-item"><img src="images/1001472487.jpg" alt="Route View"></div>
+            <div class="gallery-item"><img src="images/1001472484.jpg" alt="Coach Terminal"></div>
         </div>
     </section>
 
@@ -447,7 +442,7 @@
                     <div class="logo-icon"><i class="fas fa-bus"></i></div>
                     <div>Trinity <span>Bus Service</span></div>
                 </a>
-                <p>East Africa's Trusted Bus Service. Connecting major cities across the region with safe, affordable, and on schedule bus services.</p>
+                <p>Connecting Kenya, Uganda, Rwanda, Burundi, and DRC with safe, comfortable, and punctual cross-border coaches.</p>
                 <div class="social-links" style="margin-top: 1.5rem;">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -460,36 +455,36 @@
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#routes">Routes</a></li>
-                    <li><a href="#onboard">Onboard Comfort</a></li>
                     <li><a href="#book">Book a Seat</a></li>
+                    <li><a href="#gallery">Onboard Comfort</a></li>
                 </ul>
             </div>
             <div class="footer-links">
                 <h4>Popular Routes</h4>
                 <ul>
-                    <li><a href="#">Nairobi &harr; Kampala</a></li>
-                    <li><a href="#">Nairobi &rarr; Kigali</a></li>
-                    <li><a href="#">Nairobi &rarr; Juba</a></li>
-                    <li><a href="#">Nairobi &rarr; Bujumbura</a></li>
+                    <li><a href="#routes">Nairobi &harr; Kampala</a></li>
+                    <li><a href="#routes">Nairobi &rarr; Kigali</a></li>
+                    <li><a href="#routes">Nairobi &rarr; Juba</a></li>
+                    <li><a href="#routes">Nairobi &rarr; Bujumbura</a></li>
                 </ul>
             </div>
             <div class="footer-links">
                 <h4>Contact Us</h4>
                 <ul>
                     <li><a href="tel:+254100256761"><i class="fas fa-phone"></i> +254 100 256 761</a></li>
-                    <li><a href="https://wa.me/254751277900"><i class="fab fa-whatsapp"></i> +254 751 277 900</a></li>
+                    <li><a href="https://wa.me/254756460365" target="_blank"><i class="fab fa-whatsapp"></i> +254 756 460 365</a></li>
                     <li><a href="mailto:trinitybusservice.ke@gmail.com">trinitybusservice.ke@gmail.com</a></li>
-                    <li><a href="#">Nairobi, Kenya</a></li>
+                    <li><a href="#">Nairobi Office, Kenya</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Trinity Bus Service. All rights reserved. | trinitybusservices.co.ke</p>
-            <p>Crafted with <i class="fas fa-heart" style="color: var(--primary-orange);"></i> for East Africa</p>
+            <p>&copy; Trinity Bus Service. All rights reserved. | trinitybusservices.co.ke</p>
+            <p>Crafted for East African Travel</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/254751277900?text=Hello%20Trinity%20Bus%20Service!%20I%20would%20like%20to%20inquire%20about%20booking%20a%20ticket." class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/254756460365?text=Hello%20Trinity%20Bus%20Service!%20I%20would%20like%20to%20inquire%20about%20booking%20a%20ticket." class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -501,26 +496,25 @@
             <div class="booking-summary">
                 <div class="summary-row"><span>Passenger</span><span id="summaryName">-</span></div>
                 <div class="summary-row"><span>Route</span><span id="summaryRoute">-</span></div>
-                <div class="summary-row"><span>Date & Time</span><span id="summaryDate">-</span></div>
+                <div class="summary-row"><span>Date & Schedule</span><span id="summaryDate">-</span></div>
                 <div class="summary-row"><span>Class</span><span id="summaryClass">-</span></div>
                 <div class="summary-row"><span>Seat(s)</span><span id="summarySeats">-</span></div>
                 <div class="summary-row"><span>Total Amount</span><span id="summaryTotal">-</span></div>
             </div>
             <a href="#" class="whatsapp-btn" id="whatsappLink" target="_blank">
-                <i class="fab fa-whatsapp"></i> Confirm Booking on WhatsApp
+                <i class="fab fa-whatsapp"></i> Send Booking to WhatsApp (+254 756 460 365)
             </a>
-            <p class="whatsapp-note">You will be redirected to WhatsApp to confirm your reservation with our team.</p>
+            <p class="whatsapp-note">You will be redirected to WhatsApp to complete your reservation with our team.</p>
         </div>
     </div>
 
     <script>
         const routes = [
-            { id: 'nrb-kla', from: 'Nairobi', to: 'Kampala', fromFlag: '🇰🇪', toFlag: '🇺🇬', regular: 'KES 3,500', vip: 'KES 5,000', currency: 'KES' },
-            { id: 'kla-nrb', from: 'Kampala', to: 'Nairobi', fromFlag: '🇺🇬', toFlag: '🇰🇪', regular: 'UGX 100,000', vip: 'UGX 130,000', currency: 'UGX' },
-            { id: 'nrb-kigali', from: 'Nairobi', to: 'Kigali', fromFlag: '🇰🇪', toFlag: '🇷🇼', regular: 'KES 7,000', vip: 'KES 9,000', currency: 'KES' },
-            { id: 'nrb-juba', from: 'Nairobi', to: 'Juba', fromFlag: '🇰🇪', toFlag: '🇸🇸', regular: 'KES 8,500', vip: 'KES 10,500', currency: 'KES' },
-            { id: 'nrb-buj', from: 'Nairobi', to: 'Bujumbura', fromFlag: '🇰🇪', toFlag: '🇧🇮', regular: 'KES 7,500', vip: 'KES 9,500', currency: 'KES' },
-            { id: 'nrb-goma', from: 'Nairobi', to: 'Goma', fromFlag: '🇰🇪', toFlag: '🇨🇩', regular: 'KES 8,000', vip: 'KES 10,000', currency: 'KES' }
+            { id: 'nrb-kla', from: 'Nairobi', to: 'Kampala', fromFlag: '🇰🇪', toFlag: '🇺🇬', duration: '~12 hrs', frequency: 'Daily', regular: 'KES 3,500', vip: 'KES 5,000', currency: 'KES' },
+            { id: 'nrb-kigali', from: 'Nairobi', to: 'Kigali', fromFlag: '🇰🇪', toFlag: '🇷🇼', duration: '~20 hrs', frequency: 'Daily', regular: 'KES 7,000', vip: 'KES 9,000', currency: 'KES' },
+            { id: 'nrb-juba', from: 'Nairobi', to: 'Juba', fromFlag: '🇰🇪', toFlag: '🇸🇸', duration: '~30 hrs', frequency: 'Daily', regular: 'KES 8,500', vip: 'KES 10,500', currency: 'KES' },
+            { id: 'nrb-buj', from: 'Nairobi', to: 'Bujumbura', fromFlag: '🇰🇪', toFlag: '🇧🇮', duration: '~24 hrs', frequency: 'Daily', regular: 'KES 7,500', vip: 'KES 9,500', currency: 'KES' },
+            { id: 'nrb-goma', from: 'Nairobi', to: 'Goma', fromFlag: '🇰🇪', toFlag: '🇨🇩', duration: '~26 hrs', frequency: 'Daily', regular: 'KES 8,000', vip: 'KES 10,000', currency: 'KES' }
         ];
 
         let selectedSeats = [];
@@ -547,13 +541,17 @@
                             ${route.fromFlag} ${route.from} <i class="fas fa-arrow-right" style="color: var(--primary-orange);"></i> ${route.to} ${route.toFlag}
                         </div>
                     </div>
+                    <div class="route-meta">
+                        <span><i class="fas fa-clock"></i> ${route.duration}</span>
+                        <span><i class="fas fa-calendar-alt"></i> ${route.frequency}</span>
+                    </div>
                     <div class="route-prices">
                         <div class="price-box regular">
-                            <div class="price-box-label">Regular Class</div>
+                            <div class="price-box-label">Standard Class</div>
                             <div class="price-box-amount">${route.regular}</div>
                         </div>
                         <div class="price-box vip">
-                            <div class="price-box-label">VIP / First Class</div>
+                            <div class="price-box-label">VIP Executive</div>
                             <div class="price-box-amount">${route.vip}</div>
                         </div>
                     </div>
@@ -566,12 +564,27 @@
 
         function populateRouteSelect() {
             const select = document.getElementById('routeSelect');
+            select.innerHTML = '<option value="">-- Choose Route --</option>';
             routes.forEach(route => {
                 const option = document.createElement('option');
                 option.value = route.id;
-                option.textContent = `${route.from} → ${route.to}`;
+                option.textContent = `${route.from} → ${route.to} (${route.regular})`;
                 select.appendChild(option);
             });
+        }
+
+        function applyQuickSearch() {
+            const origin = document.getElementById('quickOrigin').value;
+            const dest = document.getElementById('quickDestination').value;
+            const match = routes.find(r => r.from === origin && r.to === dest);
+            if (match) {
+                document.getElementById('routeSelect').value = match.id;
+            } else {
+                // fallback to first route or keep selector open
+                document.getElementById('routeSelect').selectedIndex = 1;
+            }
+            updatePrice();
+            document.getElementById('book').scrollIntoView({ behavior: 'smooth' });
         }
 
         function renderSeats() {
@@ -696,10 +709,11 @@
 
         function openCheckout() {
             const name = document.getElementById('fullName').value;
+            const phone = document.getElementById('phoneNumber').value;
             const date = document.getElementById('travelDate').value;
             const time = document.getElementById('departureTime').value;
-            if (!name || !date || !currentRoute || selectedSeats.length === 0) {
-                alert('Please fill in all details and select at least one seat.');
+            if (!name || !phone || !date || !currentRoute || selectedSeats.length === 0) {
+                alert('Please fill in all details (Name, Phone, Date) and select at least one seat.');
                 return;
             }
             const priceText = currentClass === 'Regular' ? currentRoute.regular : currentRoute.vip;
@@ -707,12 +721,13 @@
             const total = basePrice * selectedSeats.length;
             document.getElementById('summaryName').textContent = name;
             document.getElementById('summaryRoute').textContent = `${currentRoute.from} → ${currentRoute.to}`;
-            document.getElementById('summaryDate').textContent = `${date} at ${time}`;
-            document.getElementById('summaryClass').textContent = currentClass;
+            document.getElementById('summaryDate').textContent = `${date} (${time})`;
+            document.getElementById('summaryClass').textContent = currentClass === 'Regular' ? 'Standard Class' : 'VIP Executive';
             document.getElementById('summarySeats').textContent = selectedSeats.sort().join(', ');
             document.getElementById('summaryTotal').textContent = `${currentRoute.currency} ${total.toLocaleString()}`;
-            const message = `Hello Trinity Bus Service!%0A%0AI would like to book a ticket with the following details:%0A%0A👤 *Name:* ${name}%0A🛣️ *Route:* ${currentRoute.from} → ${currentRoute.to}%0A📅 *Date:* ${date}%0A🕐 *Time:* ${time}%0A💺 *Class:* ${currentClass}%0A🎫 *Seat(s):* ${selectedSeats.sort().join(', ')}%0A💰 *Total:* ${currentRoute.currency} ${total.toLocaleString()}%0A%0APlease confirm my booking. Thank you!`;
-            document.getElementById('whatsappLink').href = `https://wa.me/254751277900?text=${message}`;
+            
+            const message = `Hello Trinity Bus Service!%0A%0AI would like to book a ticket with the following details:%0A%0A👤 *Name:* ${name}%0A📞 *Phone:* ${phone}%0A🛣️ *Route:* ${currentRoute.from} → ${currentRoute.to}%0A📅 *Date:* ${date}%0A🕐 *Schedule:* ${time}%0A💺 *Class:* ${currentClass}%0A🎫 *Seat(s):* ${selectedSeats.sort().join(', ')}%0A💰 *Total:* ${currentRoute.currency} ${total.toLocaleString()}%0A%0APlease confirm my booking. Thank you!`;
+            document.getElementById('whatsappLink').href = `https://wa.me/254756460365?text=${message}`;
             document.getElementById('checkoutModal').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
