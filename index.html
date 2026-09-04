@@ -316,8 +316,8 @@
                 <h3><i class="fas fa-route" style="color: var(--primary-orange); margin-right: 0.5rem;"></i>Booking made simple</h3>
                 <p>Pick your route and travel class, choose your exact seat on our live bus layout, then confirm your trip details. Your reservation is sent straight to our team on WhatsApp for instant confirmation.</p>
                 <div class="wizard-quicklinks">
-                    <a href="tel:+254712345678" class="wq-call"><i class="fas fa-phone"></i> +254 712 345 678</a>
-                    <a href="https://wa.me/254712345678" target="_blank" class="wq-wa"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+                    <a href="tel:+254107353211" class="wq-call"><i class="fas fa-phone"></i> +254 107 353 211</a>
+                    <a href="https://wa.me/254107353211" target="_blank" class="wq-wa"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
                 </div>
             </div>
 
@@ -505,7 +505,7 @@
                 <div class="step-number">03</div>
                 <div class="step-icon"><i class="fab fa-whatsapp" style="color: var(--primary-orange);"></i></div>
                 <h4>Confirm on WhatsApp</h4>
-                <p>Send your booking details to our team on WhatsApp at +254 712 345 678 for instant confirmation.</p>
+                <p>Send your booking details to our team on WhatsApp at +254 107 353 211 for instant confirmation.</p>
             </div>
         </div>
     </section>
@@ -517,23 +517,28 @@
             <p>Our team is on hand to assist with bookings, route queries, and travel information.</p>
         </div>
         <div class="cta-btns">
-            <a href="https://wa.me/254712345678?text=Hello%20Bebeto%20Coaches!%20I%20would%20like%20to%20inquire%20about%20booking%20a%20ticket." target="_blank" class="btn-primary">
+            <a href="https://wa.me/254107353211?text=Hello%20Bebeto%20Coaches!%20I%20would%20like%20to%20inquire%20about%20booking%20a%20ticket." target="_blank" class="btn-primary">
                 <i class="fab fa-whatsapp"></i> Book via WhatsApp
             </a>
-            <a href="tel:+254712345678" class="btn-secondary">
+            <a href="tel:+254107353211" class="btn-secondary">
                 <i class="fas fa-phone"></i> Call Us
             </a>
         </div>
         <div class="contact-cards">
             <div class="contact-card fade-in">
                 <div class="c-icon"><i class="fas fa-phone"></i></div>
-                <h5>Call Us</h5>
-                <p><a href="tel:+254712345678">+254 712 345 678</a></p>
+                <h5>Nairobi Office</h5>
+                <p><a href="tel:+254107353211">+254 107 353 211</a></p>
+            </div>
+            <div class="contact-card fade-in">
+                <div class="c-icon"><i class="fas fa-phone"></i></div>
+                <h5>Mombasa Office</h5>
+                <p><a href="tel:+254783856262">+254 783 856 262</a></p>
             </div>
             <div class="contact-card fade-in">
                 <div class="c-icon"><i class="fab fa-whatsapp"></i></div>
                 <h5>WhatsApp Bookings</h5>
-                <p><a href="https://wa.me/254712345678" target="_blank">+254 712 345 678</a></p>
+                <p><a href="https://wa.me/254107353211" target="_blank">+254 107 353 211</a></p>
             </div>
             <div class="contact-card fade-in">
                 <div class="c-icon"><i class="fas fa-envelope"></i></div>
@@ -548,7 +553,7 @@
             <div class="contact-card fade-in">
                 <div class="c-icon"><i class="fas fa-map-marker-alt"></i></div>
                 <h5>Our Offices</h5>
-                <p>Nairobi, Kenya &amp; Juba, South Sudan</p>
+                <p>Nairobi &amp; Mombasa, Kenya &amp; Juba, South Sudan</p>
             </div>
         </div>
     </section>
@@ -589,9 +594,11 @@
             <div class="footer-links">
                 <h4>Contact Us</h4>
                 <ul>
-                    <li><a href="tel:+254712345678"><i class="fab fa-whatsapp"></i> +254 712 345 678</a></li>
+                    <li><a href="https://wa.me/254107353211" target="_blank"><i class="fab fa-whatsapp"></i> +254 107 353 211</a></li>
+                    <li><a href="tel:+254783856262"><i class="fas fa-phone"></i> +254 783 856 262 (Mombasa)</a></li>
                     <li><a href="mailto:info@bebetocoaches.co.ke">info@bebetocoaches.co.ke</a></li>
                     <li><a href="#">Nairobi, Kenya</a></li>
+                    <li><a href="#">Mombasa, Kenya</a></li>
                     <li><a href="#">Juba, South Sudan</a></li>
                 </ul>
             </div>
@@ -602,7 +609,7 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/254712345678?text=Hello%20Bebeto%20Coaches!%20I%20would%20like%20to%20inquire%20about%20booking%20a%20ticket." class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/254107353211?text=Hello%20Bebeto%20Coaches!%20I%20would%20like%20to%20inquire%20about%20booking%20a%20ticket." class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -629,6 +636,7 @@
             setupEventListeners();
             setupScrollAnimations();
             setupNavbar();
+            setupMobileMenu();
             setStep(1);
             const today = new Date().toISOString().split('T')[0];
             document.getElementById('travelDate').min = today;
@@ -846,7 +854,7 @@
             const total = basePrice * selectedSeats.length;
 
             const message = `Hello Bebeto Coaches!%0A%0AI would like to book a ticket with the following details:%0A%0A👤 *Name:* ${name}%0A📞 *Phone:* ${phone}%0A🛣️ *Route:* ${currentRoute.from} → ${currentRoute.to}%0A📅 *Date:* ${date}%0A🕐 *Time:* ${time}%0A💺 *Class:* ${currentClass}%0A🎫 *Seat(s):* ${[...selectedSeats].sort().join(', ')}%0A💰 *Total:* ${currentRoute.currency} ${total.toLocaleString()}%0A%0APlease confirm my booking. Thank you!`;
-            document.getElementById('waBookBtn').href = `https://wa.me/254712345678?text=${message}`;
+            document.getElementById('waBookBtn').href = `https://wa.me/254107353211?text=${message}`;
             return true;
         }
 
@@ -882,6 +890,23 @@
                     navbar.style.background = 'rgba(10,10,10,0.85)';
                     navbar.style.boxShadow = 'none';
                 }
+            });
+        }
+
+        function setupMobileMenu() {
+            const btn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            const icon = btn.querySelector('i');
+            btn.addEventListener('click', () => {
+                navLinks.classList.toggle('mobile-open');
+                const isOpen = navLinks.classList.contains('mobile-open');
+                icon.className = isOpen ? 'fas fa-xmark' : 'fas fa-bars';
+            });
+            navLinks.querySelectorAll('a').forEach(a => {
+                a.addEventListener('click', () => {
+                    navLinks.classList.remove('mobile-open');
+                    icon.className = 'fas fa-bars';
+                });
             });
         }
 
