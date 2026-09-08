@@ -905,10 +905,14 @@
         }
 
         function confirmBooking() {
-            const name = document.getElementById('fullName').value;
-            const phone = document.getElementById('phoneNumber').value;
+            const name = document.getElementById('fullName').value.trim();
+            const phone = document.getElementById('phoneNumber').value.trim();
             if (!name || !phone || !currentRoute || selectedSeats.length === 0) {
                 alert('Please fill in all details and select at least one seat.');
+                return false;
+            }
+            if (!/^[\d+\s()-]{7,20}$/.test(phone)) {
+                alert('Please enter a valid phone number (digits only, optionally starting with +).');
                 return false;
             }
             const date = document.getElementById('travelDate').value;
@@ -917,8 +921,28 @@
             const basePrice = extractPrice(priceText);
             const total = basePrice * selectedSeats.length;
 
-            const message = `Hello Bebeto Coaches!%0A%0AI would like to book a ticket with the following details:%0A%0A👤 *Name:* ${name}%0A📞 *Phone:* ${phone}%0A🛣️ *Route:* ${currentRoute.from} → ${currentRoute.to}%0A📅 *Date:* ${date}%0A🕐 *Time:* ${time}%0A💺 *Class:* ${currentClass}%0A🎫 *Seat(s):* ${[...selectedSeats].sort().join(', ')}%0A💰 *Total:* ${currentRoute.currency} ${total.toLocaleString()}%0A%0APlease confirm my booking. Thank you!`;
-            document.getElementById('waBookBtn').href = `https://wa.me/254107353211?text=${message}`;
+            // Build the message as real text (with real line breaks), then run the WHOLE
+            // thing through encodeURIComponent once. Interpolating raw user/route text
+            // straight into the URL (as before) broke the link whenever a name or phone
+            // number contained a "+", "&", "#" or similar — those are meaningful URL
+            // characters and would truncate or corrupt the message WhatsApp received.
+            const message = `Hello Bebeto Coaches!
+
+I would like to book a ticket with the following details:
+
+👤 *Name:* ${name}
+📞 *Phone:* ${phone}
+🛣️ *Route:* ${currentRoute.from} → ${currentRoute.to}
+📅 *Date:* ${date}
+🕐 *Time:* ${time}
+💺 *Class:* ${currentClass}
+🎫 *Seat(s):* ${[...selectedSeats].sort().join(', ')}
+💰 *Total:* ${currentRoute.currency} ${total.toLocaleString()}
+
+Please confirm my booking. Thank you!`;
+
+            const waBtn = document.getElementById('waBookBtn');
+            waBtn.href = `https://wa.me/254107353211?text=${encodeURIComponent(message)}`;
             return true;
         }
 
